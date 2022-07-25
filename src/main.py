@@ -49,8 +49,7 @@ def handle_users():
 @app.route('/users/<int:id_usuario>/favoritos', methods=['GET'])
 def obtener_favoritos(id_usuario):
 
-    response_personajes = User.query.filter_by(
-        id=id_usuario).first().personajesFav
+    response_personajes = User.query.filter_by(id=id_usuario).first().personajesFav
     response_planetas = User.query.filter_by(id=id_usuario).first().planetasFav
     Personajes = list(map(lambda x: x.serialize(), response_personajes))
     Planetas = list(map(lambda x: x.serialize(), response_planetas))
